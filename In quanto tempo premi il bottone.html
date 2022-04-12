@@ -1,0 +1,41 @@
+<html>
+<head>
+  <style>
+    body{
+      background-color: #89CFF0;
+    }
+    h1,h2{
+      text-align: center;
+    }
+    .box{
+      background-color:#008000 ;
+      display: flex;
+      flex-direction: column;
+      width: 500px;
+      height: 300px;
+      border-radius: 40px;
+      box-shadow: 20px 20px 20px;
+      margin:0 auto;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="box">
+
+  <h1 id="demo">Clicca sotto</h1>
+  
+  <button type="button" onclick='count()'>clicca</button>
+</div>
+<script>
+let i = 0;
+let start = Date.now();
+function count() {
+
+
+  alert("Done in " + (Date.now() - start)/ 1000 + 's');
+}
+</script>
+</body>
+</html>
