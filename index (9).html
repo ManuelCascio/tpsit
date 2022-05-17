@@ -1,0 +1,92 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Esercizio 2</title>
+    <style>
+      body {
+        text-align: center;
+        background: linear-gradient(blue, red);
+        background-repeat: no-repeat;
+      }
+      
+      #mainBox {
+        box-shadow: 10px 10px 10px;
+        background-color: #7400FF;
+        margin: 0 auto;
+        border-radius: 25px;
+        position: relative;
+        border: 7px solid black;
+        width: 720px;
+        height: 720px;
+      }
+      #box1,
+      #box2 {
+        position: absolute;
+
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+      }
+      #box1 {
+        background-color: #7400FF;
+      }
+      #box2 {
+        background-color: #FF0000;
+      }
+    </style>
+  </head>
+  <body onload="posizioneCasuale()">
+    
+    <div id="mainBox">
+      <div id="box1"></div>
+      <div id="box2"></div>
+    </div>
+
+    <script>
+      function numeroCasuale() {
+        let numeroCasuale = Math.floor(Math.random() * 600) + 1;
+        return numeroCasuale;
+      }
+      function boxRossi() {
+        document.getElementById("box1").style.backgroundColor = "#BE2818";
+        document.getElementById("box2").style.backgroundColor = "#BE2818";
+      }
+      function posizioneCasuale() {
+        setInterval(function () {
+          let xCasualeBox1 = numeroCasuale();
+          let xCasualeBox2 = numeroCasuale();
+          let yCasualeBox1 = numeroCasuale();
+          let yCasualeBox2 = numeroCasuale();
+
+          document.getElementById("box1").style.marginLeft =
+            xCasualeBox1 + "px";
+          document.getElementById("box2").style.marginLeft =
+            xCasualeBox2 + "px";
+          document.getElementById("box1").style.marginTop = yCasualeBox1 + "px";
+          document.getElementById("box2").style.marginTop = yCasualeBox2 + "px";
+
+          var box1 = document.getElementById("box1");
+          var box2 = document.getElementById("box2");
+          var xDiBox1 = box1.offsetLeft;
+          var yDiBox1 = box1.offsetTop;
+          var xDiBox2 = box2.offsetLeft;
+          var yDiBox2 = box2.offsetTop;
+
+          if (
+            ((yDiBox1 < yDiBox2 && yDiBox1 + 100 > yDiBox2) ||
+              (yDiBox1 > yDiBox2 && yDiBox1 - 100 < yDiBox2)) &&
+            ((xDiBox1 < xDiBox2 && xDiBox1 + 100 > xDiBox2) ||
+              (xDiBox1 > xDiBox2 && xDiBox1 - 100 < xDiBox2))
+          ) {
+            boxRossi();
+          } else {
+            document.getElementById("box1").style.backgroundColor = "#04FF00";
+            document.getElementById("box2").style.backgroundColor = "#030303";
+          }
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>
