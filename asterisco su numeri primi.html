@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<script>
+	let sus = 1;
+	 for(let i=1;i<100;i++){
+		 
+		 if (isPrime(i)){
+
+			 document.write(sus+ "*"+ "<br>")
+		 }
+		 else {
+			 document.write(sus+ "<br>");
+		 }
+		 
+		 sus = sus+1
+		 
+		 
+
+	 }
+		 function isPrime(sus) {
+      let primoOut = true;
+      for (let fattore = 2; fattore <= sus/ 2 && primoOut; fattore++) {
+        if (sus % fattore == 0) {
+          primoOut = false;
+        }
+      }
+      return primoOut;
+    }
+
+</script>
+
+</body>
+</html>
